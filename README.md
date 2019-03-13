@@ -1,7 +1,12 @@
 # Figures for the Steel Arising report
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2592572.svg)](https://doi.org/10.5281/zenodo.2592572)
+
 This repository contains scripts and layout files to create the figures in the
 Steel Arising report.
+
+**The built figure files are available via [the latest
+release](https://github.com/ricklupton/steel-arising-report/releases/latest)**
 
 ## Data dependencies
 
@@ -20,7 +25,7 @@ Make sure required Python packages are installed:
 $ pipenv install
 ```
 
-Unfortunately this my fail to install the first time due to the use of the
+Unfortunately this may fail to install the first time due to the use of the
 `future_fstrings` package by the script for getting data from Zenodo. To fix it:
 
 ```shell

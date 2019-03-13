@@ -23,7 +23,7 @@ figure30a_uk_manufacturing.pdf \
 figure30b_uk_manufacturing_excluding_imported_components.pdf \
 figure30c_uk_manufacturing_excluding_imported_steel_any_form.pdf \
 
-.phony: svgs figures all buildFigures clean
+.phony: svgs figures all clean
 
 all: svgs figures
 
@@ -68,8 +68,16 @@ build/sankey_svgs/sankey_%.svg: build/sankey_data_with_layout/sankey_%.json
 
 
 # Build the rest of the figures
-$(FIGURE_FILES): buildFigures
+$(FIGURE_FILES): figures/.the-figures-are-done
 	:
 
-buildFigures: $(UK_STEEL_MODEL_PATH) scripts/Figures.ipynb
+figures/.the-figures-are-done: $(UK_STEEL_MODEL_PATH) scripts/Figures.ipynb
 	pipenv run jupyter nbconvert --execute --to notebook scripts/Figures.ipynb
+	touch $@
+
+
+# Bundle everything up
+figures.zip: svgs figures
+	cp figures_manual/figure13_sankey_2016.pdf figures
+	rm $@
+	zip -r $@ figures build
