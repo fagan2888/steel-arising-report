@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+future_fstrings = "*"
+pandas = "*"
+datapackage = "*"
+ipykernel = "*"
+notebook = "*"
+logzero = "*"
+floweaver = "*"
+ipysankeywidget = "*"
+matplotlib = "*"
+docopt = "*"
+zenodo-get = {path = "/home/rcl38/devel/zenodo_get/dist/zenodo_get-1.1.0-py3-none-any.whl"}
+nbconvert = "*"
+
+[dev-packages]
+pylint = "*"
+ipython = "*"
+
+[requires]
+python_version = "3.6"
+
+[scripts]
+install_kernel = "python -m ipykernel install --sys-prefix --name=pipenv"
+
+[pipenv]
+allow_prereleases = true
